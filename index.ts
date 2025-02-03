@@ -57,7 +57,7 @@ function getUserByEmail(email: string): UserEntry | undefined {
 }
 
 // Request body -> UserDto
-app.get('/register', (req: Request, res: Response) => {
+app.post('/register', (req: Request, res: Response) => {
   // Validate user object using joi
   // - username (required, min 3, max 24 characters)
   // - email (required, valid email address)
