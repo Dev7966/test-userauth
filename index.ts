@@ -113,7 +113,7 @@ app.post('/login', (req: Request, res: Response) => {
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
-    message: 'hello',
+    message: 'server is running',
   });
 });
 
