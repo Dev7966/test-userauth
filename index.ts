@@ -35,7 +35,7 @@ const userSchema = joi.object({
     .string()
     .min(5)
     .max(24)
-    .pattern(new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*W)'))
+    .pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/)
     .required(),
 });
 //
