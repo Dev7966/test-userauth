@@ -72,18 +72,18 @@ app.post('/register', (req: Request, res: Response) => {
   const { username, email, type, password } = value;
 
   if (getUserByUsername(username)) {
-    return res.status(409).json({ error: 'Username already registered' });
+    return res.status(401).json({ error: 'Username already registered' });
   }
 
   if (getUserByEmail(email)) {
-    return res.status(409).json({ error: 'Email already registered' });
+    return res.status(401).json({ error: 'Email already registered' });
   }
 
   const salt = bcrypt.genSaltSync(10);
   const passwordhash = bcrypt.hashSync(password, salt);
 
   MEMORY_DB[username] = { email, type, salt, passwordhash };
-  res.status(201).json({ message: 'User registered successfully' });
+  res.status(200).json({ message: 'User registered successfully' });
 });
 
 // Request body -> { username: string, password: string }
